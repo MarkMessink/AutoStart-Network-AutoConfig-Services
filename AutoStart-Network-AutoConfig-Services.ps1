@@ -34,19 +34,19 @@ Start-Transcript $logFile -Append -Force
 	Write-Output "-------------------------------------------------------------------"
 	Write-Output "--- Enable autostart Wired AutoConfig Service"
 	get-service -displayname 'Wired Autoconfig' | set-service -StartupType Automatic -Status Running
-	Write-Output "--- Settings and Status"
+	Write-Output "--- Settings and Status:"
 	get-service -displayname 'Wired Autoconfig' | select -Property Displayname, Name, starttype, status | FL
 	
 	Write-Output "-------------------------------------------------------------------"
 	Write-Output "--- Enable autostart WLAN AutoConfig Service"
 	get-service -displayname 'WLAN Autoconfig' | set-service -StartupType Automatic -Status Running
-	Write-Output "--- Settings and Status"
+	Write-Output "--- Settings and Status:"
 	get-service -displayname 'WLAN Autoconfig' | select -Property Displayname, Name, starttype, status | FL
 <#	
 	Write-Output "-------------------------------------------------------------------"
 	Write-Output "--- Enable autostart WWan AutoConfig Service"	
 	get-service -displayname 'WWAN Autoconfig' | set-service -StartupType Automatic -Status Running
-	Write-Output "--- Settings and Status"
+	Write-Output "--- Settings and Status:"
     get-service -displayname 'WWAN Autoconfig' | select -Property Displayname, Name, starttype, status | FL
 #>
 	
