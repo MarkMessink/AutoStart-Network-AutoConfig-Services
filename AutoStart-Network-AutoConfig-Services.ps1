@@ -1,7 +1,7 @@
 <#
 .SYNOPSIS
-    AutoStart Network AutoConfig Services to Enable IEEE802.1X on network adapters.
-	Mark Messink 03-06-2021.
+    AutoStart Network AutoConfig Services to Enable and support IEEE802.1X on network adapters.
+	Mark Messink 21-12-2021.
 
 .DESCRIPTION
  
