@@ -19,6 +19,9 @@
 
 #>
 
+# Prevent teminating script on error
+$ErrorActionPreference = 'Continue'
+
 # Create logpath (if not exist)
 $logpath = "C:\IntuneLogs"
 If(!(test-path $logpath))
@@ -30,6 +33,9 @@ $logFile = "$logpath\pslog_AutoStart-Network-AutoConfig-Services.txt"
 
 #Start logging
 Start-Transcript $logFile -Append -Force
+
+#Start script timer
+$scripttimer = [system.diagnostics.stopwatch]::StartNew()
 
 	Write-Output "-------------------------------------------------------------------"
 	Write-Output "--- Enable autostart Wired AutoConfig Service"
@@ -51,6 +57,13 @@ Start-Transcript $logFile -Append -Force
 #>
 	
 	Write-Output "-------------------------------------------------------------------"
+
+#Stop and display script timer
+$scripttimer.Stop()
+Write-Output "-------------------------------------------------------------------"
+Write-Output "Script elapsed time in seconds:"
+$scripttimer.elapsed.totalseconds
+Write-Output "-------------------------------------------------------------------"
 
 #Stop Logging
 Stop-Transcript
